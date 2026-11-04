@@ -1,0 +1,135 @@
+# ---------------------------------------------------------------------------
+# Unity Git Configuration
+# ---------------------------------------------------------------------------
+
+# Auto-detect text files and normalize line endings to LF
+* text=auto eol=lf
+
+# ---------------------------------------------------------------------------
+# Macro Definitions
+# ---------------------------------------------------------------------------
+# Define Unity YAML merging and linguistic behaviors
+[attr]unity-yaml merge=unityyamlmerge eol=lf linguist-language=yaml
+[attr]unity-json eol=lf linguist-language=json
+[attr]lfs-file   filter=lfs diff=lfs merge=lfs -text
+
+# ---------------------------------------------------------------------------
+# Source Code & Text Formats
+# ---------------------------------------------------------------------------
+*.cs diff=csharp text
+*.cginc text
+*.hlsl text
+*.shader text
+*.compute text
+*.glsl text
+*.raytrace text
+*.uss text
+*.uxml text
+
+# ---------------------------------------------------------------------------
+# Unity YAML & Text Assets (Force Text Serialization)
+# ---------------------------------------------------------------------------
+*.meta unity-yaml
+*.unity unity-yaml
+*.prefab unity-yaml
+*.asset unity-yaml
+*.mat unity-yaml
+*.anim unity-yaml
+*.controller unity-yaml
+*.overrideController unity-yaml
+*.playable unity-yaml
+*.preset unity-yaml
+*.mask unity-yaml
+*.brush unity-yaml
+*.flare unity-yaml
+*.fontsettings unity-yaml
+*.guiskin unity-yaml
+*.giparams unity-yaml
+*.lighting unity-yaml
+*.mixer unity-yaml
+*.renderTexture unity-yaml
+*.scenetemplate unity-yaml
+*.shadervariants unity-yaml
+*.signal unity-yaml
+*.spriteatlas unity-yaml
+*.spriteatlasv2 unity-yaml
+*.terrainlayer unity-yaml
+*.physicMaterial unity-yaml
+*.physicsMaterial2D unity-yaml
+
+# ---------------------------------------------------------------------------
+# Unity JSON Configuration Files
+# ---------------------------------------------------------------------------
+*.asmdef unity-json
+*.asmref unity-json
+*.inputactions unity-json
+*.shadergraph unity-json
+*.shadersubgraph unity-json
+
+# ---------------------------------------------------------------------------
+# Git LFS (Large File Storage) - Binary Assets
+# ---------------------------------------------------------------------------
+# 3D Models & Animation
+*.fbx lfs-file
+*.obj lfs-file
+*.max lfs-file
+*.blend lfs-file
+*.dae lfs-file
+*.3ds lfs-file
+*.dxf lfs-file
+*.abc lfs-file
+
+# Images & Textures
+*.png lfs-file
+*.jpg lfs-file
+*.jpeg lfs-file
+*.tga lfs-file
+*.psd lfs-file
+*.tif lfs-file
+*.tiff lfs-file
+*.iff lfs-file
+*.gif lfs-file
+*.bmp lfs-file
+*.exr lfs-file
+*.hdr lfs-file
+*.svg lfs-file
+
+# Audio & Video
+*.mp3 lfs-file
+*.wav lfs-file
+*.ogg lfs-file
+*.aif lfs-file
+*.aiff lfs-file
+*.flac lfs-file
+*.mp4 lfs-file
+*.mov lfs-file
+*.avi lfs-file
+*.asf lfs-file
+*.mpg lfs-file
+*.mpeg lfs-file
+
+# Fonts
+*.ttf lfs-file
+*.otf lfs-file
+*.fon lfs-file
+
+# Compiled Binaries & Libraries
+*.dll lfs-file
+*.pdb lfs-file
+*.so lfs-file
+*.dylib lfs-file
+*.bundle lfs-file
+*.a lfs-file
+*.lib lfs-file
+
+# Packages & Archives
+*.unitypackage lfs-file
+*.zip lfs-file
+*.tar lfs-file
+*.gz lfs-file
+*.rar lfs-file
+*.7z lfs-file
+
+# Native Unity Binary Exceptions
+*.cubemap lfs-file
+LightingData.asset lfs-file
