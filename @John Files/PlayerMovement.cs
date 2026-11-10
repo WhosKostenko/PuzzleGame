@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 5f;
+    public float currentSpeed;
+    public float playerSpeed = 2f;
+    public float runSpeed = 5f;
     public float jumpHeight = 1.5f;
     float gravity = -9.81f;
 
@@ -36,6 +38,17 @@ public class PlayerMovement : MonoBehaviour
         {
             verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+        //movement check
+    
+        if(Keyboard.current.leftShiftKey.isPressed) {
+            currentSpeed = runSpeed;
+            anim.SetBool("isRunning",true);
+            Debug.Log("Running");
+        }else {
+            currentSpeed = playerSpeed;
+            anim.SetBool("isRunning",false);
+        }
+        
 
         // Consume the press even in midair.
         jumpRequested = false;
@@ -43,8 +56,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 input = Vector2.ClampMagnitude(moveInput, 1f);
         Vector3 horizontal = transform.TransformDirection(new Vector3(input.x, 0f, input.y));
-        Vector3 velocity = horizontal * playerSpeed + Vector3.up * verticalVelocity;
+        Vector3 velocity = horizontal * currentSpeed + Vector3.up * verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
+
+        anim.SetFloat("MoveX",moveInput.x);
+        anim.SetFloat("MoveY",moveInput.y);
 
         isMoving = moveInput.magnitude > 0.1f;
         isJumping = !controller.isGrounded;
